@@ -15,6 +15,13 @@ pipeline
             {
                 sh'mvn clean package -Dskiptests=true'
             }
+            post
+            {
+                success
+                {
+                    archiveArtifacts artifacts: '**/target/*.jar'
+                }
+            }
             
         }
         stage('Test')
@@ -30,13 +37,7 @@ pipeline
                     junit'**/target/surefire-reports/*.xml'
                 }
             }
-            post
-            {
-                success
-                {
-                    archiveArtifacts artifacts: '**/target/*.jar'
-                }
-            }
+            
         }
     }
 }
