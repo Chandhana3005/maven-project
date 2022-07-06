@@ -16,7 +16,7 @@ pipeline
             {
                 success
                 {
-                    archiveArtifacts artifacts: '$WORKSPACE/target/*.jar'
+                    archiveArtifacts artifacts: '**/target/*.jar'
                 }
             }
         }
