@@ -7,7 +7,6 @@ pipeline
         {
             steps
             {
-                -B -DskipTests=true
                 sh'mvn clean package'
             }
             post
