@@ -1,6 +1,6 @@
 pipeline
 {
-    agent {label'linuxvm019'}
+    agent {label'linuxvm019_slave1'}
     parameters {
     string defaultValue: 'rhelvm', name: 'server_environment'
                 }
@@ -39,5 +39,4 @@ pipeline
             }
         }
     }
-
 }
