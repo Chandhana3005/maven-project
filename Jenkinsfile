@@ -19,7 +19,9 @@ pipeline
             steps
             {
                 withSonarQubeEnv(installationName: 'mysonar', credentialsId: 'sonar-token')
+                {
                 sh'mvn sonar:sonar'
+                }
             }
         }
         stage('Build')
