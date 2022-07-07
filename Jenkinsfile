@@ -14,11 +14,11 @@ pipeline
         {
             steps
             {
-                script {
+                eenvironment {
           // requires SonarQube Scanner 2.8+
                         scannerHome = tool 'mysonarscanner'
                         }
-                withSonarQubeEnv('mysonar')
+                withSonarQubeEnv('mysonar','sonar-token')
                 sh'mvn sonar:sonar'
             }
         }
