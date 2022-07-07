@@ -10,20 +10,23 @@ pipeline
  
     stages
     {
-       /*/ stage('SonarQube Analysis')
+        stage('SonarQube Analysis')
         {
             steps
             {
                 withSonarQubeEnv('mysonar')
-                sh'mvn sonar:sonar'
+                sh'''
+                mvn sonar:sonar \
+                -Dsonar.host.url=http://20.222.61.38:9000 \
+                -Dsonar.login=9a73e726843249de376b4be39435e9ff82e28c8f
+                '''
             }
-        }/* */
+        }
         stage('Build')
         {
             steps
             {
-                withSonarQubeEnv('mysonar')
-                sh'mvn clean package sonar:sonar -Dskiptests=true'
+                sh'mvn clean package -Dskiptests=true'
             }
             post
             {
