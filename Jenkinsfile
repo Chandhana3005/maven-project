@@ -17,7 +17,7 @@ pipeline
             {
                 withSonarQubeEnv(installationName: 'mysonar', credentialsId: 'sonar-token')
                 {
-                sh'mvn sonar:sonar'
+                sh'mvn clean sonar:sonar'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline
         {
             steps
             {
-                sh'mvn clean package -Dskiptests=true'
+                sh'mvn package -Dskiptests=true'
             }
             post
             {
