@@ -1,9 +1,6 @@
 pipeline
 {
-    agent {label'linuxvm019_slave1'}
-    parameters {
-    string defaultValue: 'rhelvm', name: 'server_environment'
-                }
+    agent any
     tools {
     maven 'maven'
             }
