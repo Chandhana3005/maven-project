@@ -42,7 +42,6 @@
          <plugin>
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
-          <version>3.7.0.1746</version>
         </plugin>
              
       <plugin>
@@ -209,8 +208,30 @@
         <version>1.8.5</version>
         <scope>test</scope>
       </dependency>
+             
+       <dependency>
+         <groupId>org.sonarsource.scanner.maven</groupId>
+         <artifactId>sonar-maven-plugin</artifactId>
+         <version>3.2</version>
+       </dependency>
+             
     </dependencies>
   </dependencyManagement>
+         
+         
+<profiles>
+         <profile>
+         <id>sonar</id>
+         <activation>
+         <activeByDefault>true</activeByDefault>
+         </activation>
+         <properties>
+         <sonar.host.url>
+         http://20.222.61.38:9000
+         </sonar.host.url>
+         </properties>
+         </profile>
+</profiles>
 
   <scm>
     <connection>scm:git:git@github.com:jleetutorial/maven-project.git</connection>
