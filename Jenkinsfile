@@ -12,13 +12,13 @@ pipeline
     {
         stage('SonarQube Analysis')
         {
-            steps
-            {
-                eenvironment {
+            environment {
           // requires SonarQube Scanner 2.8+
                         scannerHome = tool 'mysonarscanner'
                         }
-                withSonarQubeEnv('mysonar','sonar-token')
+            steps
+            {
+                withSonarQubeEnv(installationName: 'mysonar', credentialsId: 'sonar-token')
                 sh'mvn sonar:sonar'
             }
         }
