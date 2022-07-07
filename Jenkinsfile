@@ -10,19 +10,20 @@ pipeline
  
     stages
     {
-        stage('SonarQube Analysis')
+       /*/ stage('SonarQube Analysis')
         {
             steps
             {
-                withSonarQubeEnv('mysonarscanner')
-                sh'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                withSonarQubeEnv('mysonar')
+                sh'mvn sonar:sonar'
             }
-        }
+        }/* */
         stage('Build')
         {
             steps
             {
-                sh'mvn clean package -Dskiptests=true'
+                withSonarQubeEnv('mysonar')
+                sh'mvn clean package sonar:sonar -Dskiptests=true'
             }
             post
             {
