@@ -7,6 +7,9 @@ pipeline
     tools {
     maven 'maven'
             }
+    tools {
+  SonarQube Scanner 'mysonarscanner'
+}
     stages
     {
         stage('SonarQube Analysis')
