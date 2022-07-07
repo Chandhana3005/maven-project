@@ -14,7 +14,6 @@
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-    <sonar.sources>maven-project/server/src/main/java/com/example,maven-project/webapp/src/main/webapp/WEB-INF</sonar.sources>
   </properties>
 
   <modules>
