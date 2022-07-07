@@ -15,11 +15,7 @@ pipeline
             steps
             {
                 withSonarQubeEnv('mysonar')
-                sh'''
-                mvn sonar:sonar \
-                -Dsonar.host.url=http://20.222.61.38:9000 \
-                -Dsonar.login=9a73e726843249de376b4be39435e9ff82e28c8f
-                '''
+                sh'mvn sonar:sonar'
             }
         }
         stage('Build')
