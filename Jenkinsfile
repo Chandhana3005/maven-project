@@ -4,13 +4,6 @@ pipeline
     tools {
     maven 'maven'
             }
-    environment {
-        NEXUS_VERSION = "nexus3"
-        NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "20.210.225.219:8081"
-        NEXUS_REPOSITORY = "maven-repo"
-        NEXUS_CREDENTIAL_ID = "chandana"
-    }
     stages
     {
         stage('SonarQube Analysis')
