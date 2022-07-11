@@ -54,7 +54,7 @@ pipeline
             nexusUrl: '20.210.225.219:8081',
             nexusVersion: 'nexus3',
             protocol: 'http',
-            repository: 'http://20.210.225.219:8081/repository/maven-repo',
+            repository: 'maven-repo',
             version: '1.0-SNAPSHOT'  
             }
         }
