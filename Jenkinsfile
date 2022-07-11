@@ -4,7 +4,13 @@ pipeline
     tools {
     maven 'maven'
             }
- 
+    environment {
+        NEXUS_VERSION = "nexus3"
+        NEXUS_PROTOCOL = "http"
+        NEXUS_URL = "20.210.225.219:8081"
+        NEXUS_REPOSITORY = "maven-repo"
+        NEXUS_CREDENTIAL_ID = "chandana"
+    }
     stages
     {
         stage('SonarQube Analysis')
@@ -43,6 +49,28 @@ pipeline
                 }
             }
             
+        }
+        stage('Publish to Nexus')
+        {
+            steps
+            {
+              nexusArtifactUploader artifacts: 
+            [
+                [
+                    artifactId: 'maven-project',
+                    classifier: '',
+                    file: '**/target/*.jar',
+                    type: 'jar'
+                ]
+            ], 
+            credentialsId: 'chandana',
+            groupId: 'com.example.maven-project',
+            nexusUrl: '20.210.225.219:8081',
+            nexusVersion: 'nexus3',
+            protocol: 'http',
+            repository: 'http://20.210.225.219:8081/repository/maven-repo',
+            version: '1.0'  
+            }
         }
         stage('Test')
         {
