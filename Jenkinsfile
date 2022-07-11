@@ -52,7 +52,7 @@ pipeline
                 [
                     artifactId: 'maven-project',
                     classifier: '',
-                    file: '**/target/maven-project-1.0-SNAPSHOT.jar',
+                    file: '**/target/server-1.0-SNAPSHOT.jar',
                     type: 'jar'
                 ]
             ], 
