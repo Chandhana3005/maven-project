@@ -45,7 +45,7 @@ pipeline
                 [
                     artifactId: 'maven-project',
                     classifier: '',
-                    file: 'target/Server.jar',
+                    file: 'server/target/server.jar',
                     type: 'jar'
                 ]
             ], 
