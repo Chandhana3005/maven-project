@@ -45,8 +45,8 @@ pipeline
                 [
                     artifactId: 'maven-project',
                     classifier: '',
-                    file: '**/target/server.jar',
-                    type: 'pom'
+                    file: '**/target/server:jar:1.0-SNAPSHOT',
+                    type: 'jar'
                 ]
             ], 
             credentialsId: 'chandana',
