@@ -34,14 +34,7 @@ pipeline
             {
                 sh'mvn package -Dskiptests=true'
             }
-            post
-            {
-                success
-                {
-                    archiveArtifacts artifacts: '**/target/*.jar'
-                }
-            }
-            
+           
         }
         stage('Publish to Nexus')
         {
@@ -52,7 +45,7 @@ pipeline
                 [
                     artifactId: 'maven-project',
                     classifier: '',
-                    file: '**/target/server-1.0-SNAPSHOT.jar',
+                    file: '**/target/*.jar',
                     type: 'jar'
                 ]
             ], 
