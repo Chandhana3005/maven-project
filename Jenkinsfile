@@ -92,7 +92,7 @@ pipeline
                 sshagent(['tomcat8'])
                 {
                     sh '''
-                    scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/deploy_pipeline/AzureServer.jar azureuser@20.89.135.129:/opt/tomcat8/webapps
+                    scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/deploy_pipeline/AzureServer.jar azureuser@20.89.135.129:/opt/tomcat8/lib
                     ssh azureuser@20.89.135.129 /opt/tomcat8/bin/shutdown.sh
                     ssh azureuser@20.89.135.129 /opt/tomcat8/bin/startup.sh
                     '''
