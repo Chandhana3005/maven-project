@@ -93,8 +93,8 @@ pipeline
                 {
                     sh '''
                     scp -o StrictHostKeyChecking=no Azureserver.jar azureuser@20.89.135.129:/opt/tomcat8/webapps
-                    ssh azureuser@20.89.135.129 /opt/tomcat8/bin/shutdown.sh
-                    ssh azureuser@20.89.135.129 /opt/tomcat8/bin/startup.sh
+                    ssh -i ~/.ssh/id_rsa azureuser@20.89.135.129 /opt/tomcat8/bin/shutdown.sh
+                    ssh -i ~/.ssh/id_rsa azureuser@20.89.135.129 /opt/tomcat8/bin/startup.sh
                     '''
                 }
             }
