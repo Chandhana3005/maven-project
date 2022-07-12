@@ -1,7 +1,8 @@
 pipeline
 {
     agent any
-    tools {
+    tools 
+            {
     maven 'maven'
             }
     stages
@@ -82,6 +83,20 @@ pipeline
                 wget --user=admin --password=Zerodha@3005 http://20.210.225.219:8081/repository/maven-repo/com/example/maven-project/maven-project/1.0-SNAPSHOT/maven-project-1.0-20220711.192422-1.jar
                 mv maven-project-1.0-20220711.192422-1.jar AzureServer.jar
                 '''
+            }
+        }
+        stage('Deploy to Azure')
+        {
+            steps
+            {
+                sshagent(['tomcat8'])
+                {
+                    sh '''
+                    scp -o StrictHostKeyChecking=no Azureserver.jar azureuser@20.89.135.129:/opt/tomcat8/webapps
+                    ssh azureuser@20.89.135.129 /opt/tomcat8/bin/shutdown.sh
+                    ssh azureuser@20.89.135.129 /opt/tomcat8/bin/startup.sh
+                    '''
+                }
             }
         }
     }
