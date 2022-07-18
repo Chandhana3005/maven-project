@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-slim
+FROM openjdk:8
 WORKDIR /home
 COPY **/target/*.jar application.jar
 EXPOSE 8080
